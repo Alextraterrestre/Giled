@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 import unittest
-
 from gilded_rose import Item, GildedRose
 
 
@@ -11,25 +9,35 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEqual("foo", items[0].name)
 
-        def test_item_normal_diminue(self):
-            # Arrange
-            items = [Item("normal",5,5)]
-            # Act
-            gilded_rose =GildedRose(items)
-            gilded_rose.update_quality()
-            #Assert
-            self.assertEqual(4, items[0].sel_in)
-            self.assertEqual(4, items[0].quality)
+    def test_item_normal_diminue(self):
+        # Arrange
+        items = [Item("normal",5,5)]
+        # Act
+        gilded_rose =GildedRose(items)
+        gilded_rose.update_quality()
+        #Assert
+        self.assertEqual(4, items[0].sel_in)
+        self.assertEqual(4, items[0].quality)
 
-        def test_item_normal_diminue_qualite_non_negatif(self):
-            # Arrange
-            items = [Item("normal",sell_in=5 ,quality=1)]
-            # Act
-            gilded_rose =GildedRose(items)
-            gilded_rose.update_quality()
-            gilded_rose.update_quality()
-            #Assert
-            self.assertEqual(0, items[0].quality)
+    def test_item_normal_diminue_qualite_non_negatif(self):
+        # Arrange
+        items = [Item("normal",sell_in=5 ,quality=1)]
+        # Act
+        gilded_rose =GildedRose(items)
+        gilded_rose.update_quality()
+        gilded_rose.update_quality()
+        #Assert
+        self.assertEqual(0, items[0].quality)
+
+    def test_item_date_passee(self):
+        # Arrange
+        items = [Item("normal",sell_in=5 ,quality=1)]
+        # Act
+        gilded_rose =GildedRose(items)
+        gilded_rose.update_quality()
+        gilded_rose.update_quality()
+        #Assert
+        self.assertEqual(0, items[0].quality)
 
         
 if __name__ == '__main__':

@@ -16,3 +16,9 @@ def test_normal_item_degrades_quality_and_sellin():
     
     assert item.sell_in == 9
     assert item.quality == item.quality.min(0) & item.quality.max(50)
+
+def test_normal_item_degrades_quality_and_sellin():
+    item = Item("Aged Brie", +1, quality=0+1 )
+    gilded_rose = GildedRose([item])
+    gilded_rose.update_quality()
+    
