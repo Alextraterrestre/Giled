@@ -21,4 +21,9 @@ def test_normal_item_aged_brie():
     item = Item("Aged Brie", 0+1, quality=0+1 )
     gilded_rose = GildedRose([item])
     gilded_rose.update_quality()
+
+def test_normal_item_Sulfuras():
+    item = Item("Sulfuras", 0, 50 )
+    gilded_rose = GildedRose([item])
+    gilded_rose.update_quality()
     
